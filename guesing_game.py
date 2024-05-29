@@ -5,6 +5,7 @@ def choose_word():
     #chooses a random number and uses that to select a word. The range is determined by the length of the list and the chosen word is passed back out.
     r_num = random.randint(0,len(word_list))
     chosen_word = word_list[r_num]
+    chosen_word = "tests"
     return chosen_word
 
 def guessing_method(c_word):
@@ -13,6 +14,7 @@ def guessing_method(c_word):
     #One of the changes will be to move over to a message box to display the colors on the letters.
     wrong_letters = []
     misplaced_letters = []
+    num_of_misplaced = {}
 
     #Variables to keep track of the number of turns and the current turn as well as a variable for the user's guess itself.
     maximum_turns = 5
@@ -41,8 +43,16 @@ def guessing_method(c_word):
                 #If its the same but not in the correct position then it is yellow and adds it to the list of misplaced letters
                 elif guess[i] in c_word and guess[i] != c_word[i]:
                     print(Fore.YELLOW + guess[i] + Fore.RESET, end="")
+                    letter_count = c_word.count(guess[i])
                     if guess[i] not in misplaced_letters:
                         misplaced_letters.append(guess[i])
+                    if guess[i] in misplaced_letters and guess[i] not in num_of_misplaced:
+                        num_of_misplaced[guess[i]] = 1
+                        print(str(num_of_misplaced[guess[i]]))
+                    elif guess[i] in misplaced_letters and guess[i] in num_of_misplaced:
+                        if num_of_misplaced[guess[i]] < letter_count:
+                            num_of_misplaced[guess[i]] = num_of_misplaced[guess[i]] +1
+                            print(str(num_of_misplaced[guess[i]]))
                     i += 1
                 #Otherwise it is grey and it adds the letter to the list of letters not present in the word.
                 else: 
@@ -55,7 +65,8 @@ def guessing_method(c_word):
             current_turn +=1
             print("\n"+"Incorrect Guess. Try again.")
             print("You have "+str(maximum_turns - current_turn)+" Guesses left.")
-            
+            print(num_of_misplaced)
+
             #Prints the list of Misplaced letters in the word and the list of guessed letters that aren't in the word so the user can keep track of previous guesses better.
             print("Misplaced Letters: ", end="")
             print(misplaced_letters)
