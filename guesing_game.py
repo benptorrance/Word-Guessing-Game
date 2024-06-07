@@ -8,7 +8,7 @@ def choose_word():
     return chosen_word
 
 def guessing_method(c_word):
-    #Declaring the array that will be used to track the wrong numbers and the dictionary that will track the misplaced letters and the number of times each letter appears.
+    #Declaring the array that will be used to track the wrong numbers and the dictionary that will track the misplaced letters.
     #A dictionary was used for the letters that are misplaced for the key:value pair that dictionaries offer.
     #The value connected to each letter tracks the number of misplaced letters to prevent a letter from disappearing if
     #only one is in the correct place.
