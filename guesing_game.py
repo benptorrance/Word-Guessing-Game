@@ -45,7 +45,6 @@ def guessing_method(c_word):
                 #If its the same but not in the correct position then it is yellow and adds it to the list of misplaced letters.
                 elif guess[i] in c_word and guess[i] != c_word[i]:
                     print(Fore.YELLOW + guess[i] + Fore.RESET, end="")
-
                     #Checks if a letter is present in the list of misplaced_letters. If it isn't, then a key is created with its name and the value is set to 1.
                     if guess[i] not in misplaced_letters:
                         misplaced_letters[guess[i]] = 1
