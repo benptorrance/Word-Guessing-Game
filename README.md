@@ -10,4 +10,3 @@ The game is also capable of determining whether the word provided is a valid wor
 
 Known Bugs:
 
-If the word contains two of the same letter and the second of those letters is in the correct position, it will still remove it from the list of misplaced letters.
