@@ -10,3 +10,4 @@ The game is also capable of determining whether the word provided is a valid wor
 
 Known Bugs:
 
+As of now there are no known bugs.
